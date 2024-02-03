@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.1'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+
+    //Kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    //БД
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.springframework:spring-tx:' // транзакции
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.zaxxer:HikariCP'
+    implementation 'org.springframework:spring-context'
+
+    //EDIFACT
+    implementation group: 'org.milyn.edi.unedifact', name: 'd97a-binding', version: '1.7.1.0'
+    implementation group: 'org.milyn.edi.unedifact', name: 'd97a-mapping', version: '1.7.1.0'
+    implementation group: 'org.milyn', name: 'milyn-smooks-edi', version: '1.7.0'
+    implementation group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '7.3'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
