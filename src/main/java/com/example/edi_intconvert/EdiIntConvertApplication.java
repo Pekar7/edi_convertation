@@ -9,5 +9,4 @@ public class EdiIntConvertApplication {
     public static void main(String[] args) {
         SpringApplication.run(EdiIntConvertApplication.class, args);
     }
-
 }
