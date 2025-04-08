@@ -1,11 +1,13 @@
 package com.example.edi_intconvert.service.kafka;
 
 
+import com.example.edi_intconvert.cfg.DevProfileCondition;
 import com.example.edi_intconvert.dto.MessageDtoKfk;
 import com.example.edi_intconvert.service.convert.EdifactConvertService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.ConsumerSeekAware;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @Service
 @Slf4j
+@Conditional(DevProfileCondition.class)
 public class KafkaListenerService implements ConsumerSeekAware {
 
     private final EdifactConvertService edifactConvertService;

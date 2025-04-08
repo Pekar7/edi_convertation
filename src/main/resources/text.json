@@ -1,0 +1,15 @@
+{
+  "name": "Karen",
+  "age": 22,
+  "courses": [
+    {
+      "English": "5"
+    },
+    {
+      "Franch": "5"
+    },
+    {
+      "Italy": "5"
+    }
+  ]
+}
